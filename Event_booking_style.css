@@ -1,0 +1,135 @@
+body {
+    background: linear-gradient(to bottom, #976ace, #CBC3E3, #E6E6FA);    color: #fff;
+    font-family: 'Jost', sans-serif;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+
+}
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(36, 36, 62, 0.9); /* Dark lavender transparent */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.8rem; /* Slightly larger font for emphasis */
+    letter-spacing: 1px;
+    margin-right: auto; /* Pushes the brand to the left */
+    padding: auto;
+}
+
+.navbar-nav {
+    margin-left: auto; /* Aligns nav items to the right */
+    padding: auto;
+}
+
+.navbar-nav .nav-link {
+    color: #CBC3E3; /* Light lavender */
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E6E6FA; /* Lighter lavender on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E6E6FA;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    background-color: #fff; /* White for better contrast */
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+/* Search bar styles */
+.form-inline input {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: #CBC3E3; /* Light lavender for the input field */
+    border: none;
+    color: #24243e; /* Dark text for contrast */
+}
+
+.form-inline input::placeholder {
+    color: #24243e; /* Dark placeholder text */
+}
+
+.form-inline button {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 2px solid #E6E6FA; /* Light lavender outline */
+    color: #E6E6FA; /* Button text color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-inline button:hover {
+    background-color: #E6E6FA; /* Light lavender on hover */
+    color: #24243e; /* Dark text color on hover */
+}
+
+
+.card {
+    background: rgba(36, 36, 62, 0.8); /* Changed to darker lavender */
+    border: none;
+    transition: transform 0.2s ease;
+}
+.form-control, .form-select {
+    background: rgba(36, 36, 62, 0.8);;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-control::placeholder {
+    color: #888;
+}
+
+.btn-primary {
+    background-color: #573b8a;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #6d44b8;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,133 @@
+/* Admin Profile Section */
+.admin-profile {
+    background-color: #f0f0f5; /* Light grey background for a clean look */
+    color: #333; /* Dark text for contrast */
+    padding: 50px 0;
+}
+
+.profile-header {
+    margin-bottom: 40px;
+}
+
+.admin-username {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.admin-role {
+    font-style: italic;
+    color: #555; /* Slightly muted text */
+}
+
+.admin-actions button {
+    background-color: #573b8a; /* Dark lavender */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-actions button:hover {
+    background-color: #967BB6; /* Lighter lavender */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+.toggle-section {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    transition: color 0.3s ease;
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.admin-info-content, .activity-content {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease; /* Animation effect when shown */
+}
+
+.admin-details h3, .admin-activity h3 {
+    font-size: 1.5rem;
+    color: #573b8a; /* Dark lavender */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-control {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #573b8a;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #967BB6; /* Light lavender */
+    box-shadow: 0 0 5px rgba(87, 59, 138, 0.5);
+}
+
+.btn-save-admin-info {
+    background-color: #573b8a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-save-admin-info:hover {
+    background-color: #967BB6; /* Lighter lavender */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Recent Activity List */
+.recent-activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eee; /* Light border for separation */
+    transition: background-color 0.3s ease;
+}
+
+.activity-item:hover {
+    background-color: rgba(87, 59, 138, 0.05); /* Subtle lavender hover effect */
+}
+
+.view-all-activity {
+    color: #573b8a;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.view-all-activity:hover {
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

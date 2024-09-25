@@ -1,0 +1,138 @@
+/* User Profile Section */
+.user-profile {
+    background: linear-gradient(to bottom, #976ace, #CBC3E3, #E6E6FA);
+    color: #333; /* Dark text for contrast */
+    padding: 50px 0;
+    position: relative;
+}
+
+.profile-header {
+    margin-bottom: 40px;
+}
+
+.profile-picture {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #573b8a; /* Dark lavender border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-upload-picture {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background-color: #573b8a; /* Dark lavender */
+    border: none;
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-upload-picture:hover {
+    background-color: #967BB6; /* Lighter lavender */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+.username {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.user-bio {
+    font-style: italic;
+    color: #777; /* Slightly muted text */
+}
+
+.btn-customize-profile, .btn-view-bookings {
+    background-color: #573b8a; /* Dark lavender */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-customize-profile:hover, .btn-view-bookings:hover {
+    background-color: #967BB6; /* Lighter lavender */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+.profile-details h3, .profile-bookings h3 {
+    font-size: 1.5rem;
+    color: #573b8a; /* Dark lavender */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-control {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #573b8a;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #967BB6; /* Light lavender */
+    box-shadow: 0 0 5px rgba(87, 59, 138, 0.5);
+}
+
+.btn-save-info {
+    background-color: #573b8a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-save-info:hover {
+    background-color: #967BB6; /* Lighter lavender */
+    transform: scale(1.05); /* Slight grow effect */
+}
+
+/* Booked Events List */
+.booked-events-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.booked-event {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eee; /* Light border for separation */
+    transition: background-color 0.3s ease;
+}
+
+.booked-event:hover {
+    background-color: rgba(87, 59, 138, 0.05); /* Subtle lavender hover effect */
+}
+
+.view-all-events {
+    color: #573b8a;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.view-all-events:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,126 @@
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(36, 36, 62, 0.9); /* Dark lavender transparent */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.navbar-brand {
+    color: #fff !important;  /* Forces the color to white */
+    font-weight: bold;
+    font-size: 1.8rem; /* Adjust as needed */
+    letter-spacing: 1px;
+    margin-right: auto;
+    padding-left: 20px; /* Adds space on the left */
+}
+.navbar-nav {
+    margin-left: auto; /* Aligns nav items to the right */
+}
+
+.navbar-nav .nav-link {
+    color: #CBC3E3; /* Light lavender */
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E6E6FA; /* Lighter lavender on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E6E6FA;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    background-color: #fff; /* White for better contrast */
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+
+
+
+body {
+    background: linear-gradient(to bottom, #967BB6, #CBC3E3, #E6E6FA);
+    font-family: 'Jost', sans-serif;
+    color: #24243e; /* Adjusted to match the dark text contrast on lavender */
+}
+
+.container {
+    background: rgba(36, 36, 62, 0.8);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.section-heading {
+    color: #fff;
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    color: #E6E6FA; 
+    border: none;
+    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+    font-weight: bold;
+    border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #967BB6; /* Main lavender color */
+    border-radius: 5px;
+    color: #fff;
+}
+
+.table {
+    color: #fff;
+    border-radius: 10px;
+}
+
+.btn-sm {
+    margin: 0 5px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #1e1e2f;
+}
+
+.badge {
+    font-size: 0.9em;
+}
