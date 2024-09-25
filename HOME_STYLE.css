@@ -1,0 +1,511 @@
+/* General Styling */
+body {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(to bottom, #967BB6, #CBC3E3, #E6E6FA); /* Lavender gradient */
+    color: #24243e; /* Dark contrast text color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(36, 36, 62, 0.9); /* Dark lavender transparent */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.8rem; /* Slightly larger font for emphasis */
+    letter-spacing: 1px;
+    margin-right: auto; /* Pushes the brand to the left */
+}
+
+.navbar-nav {
+    margin-left: auto; /* Aligns nav items to the right */
+}
+
+.navbar-nav .nav-link {
+    color: #CBC3E3; /* Light lavender */
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E6E6FA; /* Lighter lavender on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E6E6FA;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    background-color: #fff; /* White for better contrast */
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
+/* Search bar styles */
+.form-inline input {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: #CBC3E3; /* Light lavender for the input field */
+    border: none;
+    color: #24243e; /* Dark text for contrast */
+}
+
+.form-inline input::placeholder {
+    color: #24243e; /* Dark placeholder text */
+}
+
+.form-inline button {
+    border-radius: 20px;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 2px solid #E6E6FA; /* Light lavender outline */
+    color: #E6E6FA; /* Button text color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-inline button:hover {
+    background-color: #E6E6FA; /* Light lavender on hover */
+    color: #24243e; /* Dark text color on hover */
+}
+
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    background-color: #573b8a; /* Darker lavender for dropdown */
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-item {
+    color: #fff;
+    font-weight: bold;
+}
+
+.dropdown-item:hover {
+    background-color: #967BB6; /* Lighter lavender on hover */
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    background: url('Home4.png') no-repeat center center/cover; /* Ensure the URL is correct */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack the text elements */
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("Home4.png");
+
+    /*background: url('Home4.png') no-repeat center center/cover;  Keep this consistent */
+    opacity: 0.5; /* Adjust opacity here to make the image more visible */
+    z-index: -1; /* Keep the image behind the text */
+}
+
+.hero h1, .hero p {
+    z-index: 1; /* Ensure text stays above the image */
+    /* Lightened background for text */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    color: #fff; /* Keep text white for contrast */
+}
+
+.hero h1 {
+    font-size: 3rem; /* Adjust the size for a bold title */
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem; /* Adjust the size for the subtitle */
+}
+.hero h1, .hero p {
+    color: #000000; /* Lighter shade of white */
+}
+/* Features Section */
+.features {
+    background-color: #E6E6FA; /* Soft lavender background */
+    padding: 60px 0;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    color: #573b8a; /* Dark lavender */
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out; /* Title fades in from top */
+}
+
+/* Feature Icon Styling */
+.features i {
+    color: #967BB6; /* Light lavender for icons */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease; /* Add a smooth transform for hover */
+    animation: bounce 2s infinite; /* Icons bounce continuously */
+}
+
+.features h3 {
+    font-size: 1.8rem;
+    color: #24243e; /* Dark text color */
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+    animation: fadeInUp 1s ease-out; /* Subtitles fade in from bottom */
+}
+
+.features p {
+    font-size: 1rem;
+    color: #24243e;
+    animation: fadeIn 1.5s ease-out; /* Paragraphs fade in smoothly */
+}
+
+/* Add hover effects for icons */
+.features i:hover {
+    transform: scale(1.2); /* Icons grow slightly on hover */
+    color: #573b8a; /* Dark lavender on hover */
+}
+
+/* Hover effect for the feature cards */
+.col-md-4 {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.col-md-4:hover {
+    transform: translateY(-10px); /* Card lifts up slightly */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Keep the original position */
+    }
+    40% {
+        transform: translateY(-10px); /* Bounce up */
+    }
+    60% {
+        transform: translateY(-5px); /* Slight bounce */
+    }
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background: #f8f9fa; /* Light background for contrast */
+    color: #24243e; /* Dark contrast text */
+}
+
+.testimonial-box {
+    background: linear-gradient(135deg, #CBC3E3, #967BB6); /* Soft lavender gradient */
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-box:nth-child(2) {
+    background: linear-gradient(135deg, #E6E6FA, #967BB6); /* Lighter lavender gradient for variety */
+}
+
+.testimonial-box:nth-child(3) {
+    background: linear-gradient(135deg, #D6CDEA, #B39CD0); /* Slightly different lavender hue */
+}
+
+.testimonial-box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #fff; /* White border for contrast */
+    object-fit: cover;
+}
+
+.testimonial-box p {
+    font-style: italic;
+    color: #fff; /* Light text for better contrast */
+    margin-bottom: 10px;
+}
+
+.testimonial-box h5 {
+    font-weight: bold;
+    color: #fff; /* White for emphasis */
+    margin-top: 10px;
+}
+
+.testimonial-section h2 {
+    color: #573b8a; /* Dark lavender for heading */
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Add some subtle animation */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.testimonial-box {
+    animation: slideIn 0.6s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Recommendations Section Styling */
+.recommendations-section {
+    background-color: #E6E6FA; /* Light lavender background for consistency */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #24243e; /* Dark text color */
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #573b8a; /* Darker lavender for the subtitle */
+    margin-bottom: 40px;
+}
+
+.recommendations-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 30%;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px); /* Lift the card on hover */
+}
+
+.event-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    color: #24243e;
+    margin: 15px 0 10px 0;
+}
+
+.event-category {
+    font-size: 1rem;
+    color: #CBC3E3;
+}
+
+.btn-primary {
+    background-color: #573b8a; /* Dark lavender */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #967BB6; /* Light lavender hover effect */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: rgba(36, 36, 62, 0.9); /* Dark lavender */
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer h5 {
+    color: #E6E6FA; /* Light lavender */
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #a1a1a1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #E6E6FA; /* Light lavender on hover */
+}
+
+/* Social Icons Styling */
+.social-icons a {
+    color: #CBC3E3;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+    animation: fadeIn 1.5s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px); /* Bounce up on hover */
+    color: #E6E6FA;
+}
+
+/* Newsletter Form */
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border: 2px solid #E6E6FA;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.newsletter-form input::placeholder {
+    color: #CBC3E3;
+}
+
+.newsletter-form input:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: #CBC3E3;
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    background-color: #573b8a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #967BB6; /* Light lavender */
+}
+
+/* Footer Bottom Links */
+.bottom-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: #CBC3E3;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.footer p {
+    animation: fadeIn 1.5s ease-out;
+}
