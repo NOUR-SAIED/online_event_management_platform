@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,23 +14,33 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Sign up</label>
+				<form action="signup.php" method="POST">
+					<label for="chk" aria-hidden="true">Sign up </label>
+					<!--role selection-->
+						<select name="role" required="">
+							<option value="user">User</option>
+							<option value="admin">Admin</option>
+						</select>
 					<input type="text" name="txt" placeholder="User name" required="">
 					<input type="email" name="email" placeholder="Email" required="">
-          <input type="number" name="broj" placeholder="Phone number" required="">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone number" required>
 					<input type="password" name="pswd" placeholder="Password" required="">
 					<button>Sign up</button>
 				</form>
 			</div>
 
 			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
+				<form action="login.php" method="POST">
+					<label for="chk" aria-hidden="true">Login </label>
+					<!--role selection-->
+						<select name="role" required="">
+							<option value="user">User</option>
+							<option value="admin">Admin</option>
+						</select>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="pswd" placeholder="Password" required="">
 					<button>Login</button>
-				</form>
+				</form >
                 <!-- Lien pour réinitialiser le mot de passe -->
                <div class="links">
                   <a href="reset_password.html">Forgot your password ?</a>
