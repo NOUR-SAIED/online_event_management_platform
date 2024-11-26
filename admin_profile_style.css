@@ -1,7 +1,9 @@
 /* Admin Profile Section */
 .admin-profile {
-    background-color: #f0f0f5; /* Light grey background for a clean look */
-    color: #333; /* Dark text for contrast */
+    background-color: #f0f0f5;
+    /* Light grey background for a clean look */
+    color: #333;
+    /* Dark text for contrast */
     padding: 50px 0;
 }
 
@@ -16,11 +18,13 @@
 
 .admin-role {
     font-style: italic;
-    color: #555; /* Slightly muted text */
+    color: #555;
+    /* Slightly muted text */
 }
 
 .admin-actions button {
-    background-color: #573b8a; /* Dark lavender */
+    background-color: #573b8a;
+    /* Dark lavender */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -31,8 +35,10 @@
 }
 
 .admin-actions button:hover {
-    background-color: #967BB6; /* Lighter lavender */
-    transform: scale(1.05); /* Slight grow effect */
+    background-color: #967BB6;
+    /* Lighter lavender */
+    transform: scale(1.05);
+    /* Slight grow effect */
 }
 
 .toggle-section {
@@ -49,14 +55,19 @@
     transition: transform 0.3s ease;
 }
 
-.admin-info-content, .activity-content {
-    display: none; /* Hidden by default */
-    animation: fadeIn 0.5s ease; /* Animation effect when shown */
+.admin-info-content,
+.activity-content {
+    display: none;
+    /* Hidden by default */
+    animation: fadeIn 0.5s ease;
+    /* Animation effect when shown */
 }
 
-.admin-details h3, .admin-activity h3 {
+.admin-details h3,
+.admin-activity h3 {
     font-size: 1.5rem;
-    color: #573b8a; /* Dark lavender */
+    color: #573b8a;
+    /* Dark lavender */
     margin-bottom: 20px;
     text-align: left;
 }
@@ -71,7 +82,8 @@
 }
 
 .form-control:focus {
-    border-color: #967BB6; /* Light lavender */
+    border-color: #967BB6;
+    /* Light lavender */
     box-shadow: 0 0 5px rgba(87, 59, 138, 0.5);
 }
 
@@ -85,8 +97,10 @@
 }
 
 .btn-save-admin-info:hover {
-    background-color: #967BB6; /* Lighter lavender */
-    transform: scale(1.05); /* Slight grow effect */
+    background-color: #967BB6;
+    /* Lighter lavender */
+    transform: scale(1.05);
+    /* Slight grow effect */
 }
 
 /* Recent Activity List */
@@ -104,12 +118,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #eee; /* Light border for separation */
+    border: 1px solid #eee;
+    /* Light border for separation */
     transition: background-color 0.3s ease;
 }
 
 .activity-item:hover {
-    background-color: rgba(87, 59, 138, 0.05); /* Subtle lavender hover effect */
+    background-color: rgba(87, 59, 138, 0.05);
+    /* Subtle lavender hover effect */
 }
 
 .view-all-activity {
@@ -127,6 +143,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
