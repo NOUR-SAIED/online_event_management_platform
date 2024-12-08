@@ -1,0 +1,92 @@
+/* Universal Reset and Font Style */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Gorgeous Gradient Background */
+body {
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Card Styling for Form */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Lock Icon */
+.lock-icon {
+    font-size: 3rem;
+    color: #ffd700; /* Golden vibe */
+    margin-bottom: 15px;
+}
+
+/* Headings and Text */
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Input Field Styling */
+.passInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.passInput::placeholder {
+    color: #888;
+}
+
+.passInput:focus {
+    background: #fff;
+    border: 2px solid #3498db;
+}
+
+/* Button Styling */
+button.reset-btn {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button.reset-btn:hover {
+    background: #8e44ad;
+    transform: scale(1.05);
+}

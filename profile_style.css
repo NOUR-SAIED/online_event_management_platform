@@ -1,4 +1,73 @@
 /* User Profile Section */
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(36, 36, 62, 0.9);
+    /* Dark lavender transparent */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.8rem;
+    /* Slightly larger font for emphasis */
+    letter-spacing: 1px;
+    margin-right: auto;
+    /* Pushes the brand to the left */
+}
+
+.navbar-nav {
+    margin-left: auto;
+    /* Aligns nav items to the right */
+}
+
+.navbar-nav .nav-link {
+    color: #CBC3E3;
+    /* Light lavender */
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E6E6FA;
+    /* Lighter lavender on hover */
+    text-decoration: underline;
+    /* Underline effect on hover */
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #E6E6FA;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    background-color: #fff;
+    /* White for better contrast */
+    border: none;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+}
 .user-profile {
     background: linear-gradient(to bottom, #976ace, #CBC3E3, #E6E6FA);
     color: #333; /* Dark text for contrast */
