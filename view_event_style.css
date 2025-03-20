@@ -1,24 +1,32 @@
 /* Navigation Bar */
 .navbar {
-    background-color: rgba(36, 36, 62, 0.9); /* Dark lavender transparent */
+    background-color: rgba(36, 36, 62, 0.9);
+    /* Dark lavender transparent */
     padding: 15px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
 }
 
 .navbar-brand {
-    color: #fff !important;  /* Forces the color to white */
+    color: #fff !important;
+    /* Forces the color to white */
     font-weight: bold;
-    font-size: 1.8rem; /* Adjust as needed */
+    font-size: 1.8rem;
+    /* Adjust as needed */
     letter-spacing: 1px;
     margin-right: auto;
-    padding-left: 20px; /* Adds space on the left */
+    padding-left: 20px;
+    /* Adds space on the left */
 }
+
 .navbar-nav {
-    margin-left: auto; /* Aligns nav items to the right */
+    margin-left: auto;
+    /* Aligns nav items to the right */
 }
 
 .navbar-nav .nav-link {
-    color: #CBC3E3; /* Light lavender */
+    color: #CBC3E3;
+    /* Light lavender */
     font-weight: bold;
     font-size: 1rem;
     margin-right: 20px;
@@ -26,8 +34,10 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #E6E6FA; /* Lighter lavender on hover */
-    text-decoration: underline; /* Underline effect on hover */
+    color: #E6E6FA;
+    /* Lighter lavender on hover */
+    text-decoration: underline;
+    /* Underline effect on hover */
 }
 
 .nav-item {
@@ -51,7 +61,8 @@
 }
 
 .navbar-toggler {
-    background-color: #fff; /* White for better contrast */
+    background-color: #fff;
+    /* White for better contrast */
     border: none;
 }
 
@@ -62,39 +73,44 @@
 body {
     background: linear-gradient(to bottom, #967BB6, #CBC3E3, #E6E6FA);
     font-family: 'Jost', sans-serif;
-    color: #24243e; /* Adjusted to match the dark text contrast on lavender */
+    color: #24243e;
+    /* Adjusted to match the dark text contrast on lavender */
 }
 
 .container {
-    background: rgba(36, 36, 62, 0.8); /* Dark lavender color with transparency */
+    background: rgba(36, 36, 62, 0.8);
+    /* Dark lavender color with transparency */
     border-radius: 10px;
     padding: 30px;
 }
 
 
 .nav-tabs .nav-link {
-    color: #E6E6FA; 
+    color: #E6E6FA;
     border: none;
     background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
     font-weight: bold;
     border-radius: 10px;
-	box-shadow: 5px 20px 50px #000;
+    box-shadow: 5px 20px 50px #000;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: #967BB6; /* Main lavender color */
+    background-color: #967BB6;
+    /* Main lavender color */
     border-radius: 5px;
     color: #fff;
 }
 
 .section-heading {
-    color: #CBC3E3; /* Light lavender */
+    color: #CBC3E3;
+    /* Light lavender */
     text-align: center;
     margin-bottom: 20px;
 }
 
 .card {
-    background: #573b8a; /* Deep lavender */
+    background: #573b8a;
+    /* Deep lavender */
     border: none;
     transition: transform 0.2s ease;
 }
@@ -103,8 +119,10 @@ body {
     transform: translateY(-5px);
 }
 
-.card-title, .card-text {
-    color: #E6E6FA; /* Light lavender */
+.card-title,
+.card-text {
+    color: #E6E6FA;
+    /* Light lavender */
 }
 
 .card-body {
@@ -118,11 +136,28 @@ body {
 }
 
 .btn-primary {
-    background-color: #967BB6; /* Lavender button */
+    background-color: #967BB6;
+    /* Lavender button */
     border: none;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #CBC3E3; /* Light lavender on hover */
+    background-color: #CBC3E3;
+    /* Light lavender on hover */
+}
+.btn-custom {
+    background-color: #ff6f61; /* Replace with your theme's color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px; /* Adjust as per your theme's style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #ff4e3f; /* Slightly darker or different shade for hover effect */
+    text-decoration: none; /* Removes underline */
 }

@@ -1,47 +1,51 @@
 <?php
-session_start();
+session_start(); // Start the session
+// Check if the user is logged in and session variables are set
 
-// Check if the user is logged in
-if (!isset($_SESSION['user_email'])) {
-    header("Location: login.php");
-    exit();
+// Establish database connection
+$conn = new mysqli('localhost', 'root', '', 'user_management');
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
 
+// Variable to track the submission status
+$showSuccessModal = false;
+
 // Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get form data
-    $user_id = $_SESSION['user_id']; // Assuming the user's ID is stored in session
-    $event_title = $_POST['eventTitle'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if (isset($_POST['eventTitle'], $_POST['eventDescription'], $_POST['eventDate'], $_POST['eventTime'], $_POST['eventLocation'], $_POST['eventCategory'])) {
+    $event_name = $_POST['eventTitle'];
     $event_description = $_POST['eventDescription'];
     $event_date = $_POST['eventDate'];
     $event_time = $_POST['eventTime'];
     $event_location = $_POST['eventLocation'];
     $event_category = $_POST['eventCategory'];
-    $created_by = $_SESSION['username']; // Assuming the username is stored in session
 
-    // Database connection
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "user_management"; // Replace with your actual database name
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // User id comes from the session or form input
+    $created_by = $_POST['email'];
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // Prepare the SQL query
+    $sql = "INSERT INTO events (event_name, event_description, event_date, event_time, event_location, event_category, created_by, status) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, 'Pending')";
 
-    // Insert event into the events table with status "Pending"
-    $sql = "INSERT INTO events (event_title, event_description, event_date, event_time, event_location, event_category, created_by, status) 
-            VALUES ('$event_title', '$event_description', '$event_date', '$event_time', '$event_location', '$event_category', '$created_by', 'Pending')";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssssss", $event_name, $event_description, $event_date, $event_time, $event_location, $event_category, $created_by);
 
-    if ($conn->query($sql) === TRUE) {
-        header("Location: events.php?message=Event submitted for review.");
+    // Execute the query and set the modal trigger if successful
+    if ($stmt->execute()) {
+      $showSuccessModal = true; // Set the flag to true
     } else {
-        echo "Error: " . $conn->error;
+      echo "Error: " . $stmt->error;
     }
 
-    $conn->close();
+    $stmt->close();
+  } else {
+    echo "All fields are required.";
+  }
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -58,41 +62,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">EveQuest</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">&#9776;</span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="HOME.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="profile.html">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="HOME.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="view_event.php">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            More
-          </a>
+            aria-haspopup="true" aria-expanded="false">More</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Blog</a>
             <a class="dropdown-item" href="#">FAQs</a>
           </div>
         </li>
       </ul>
-      <!-- Search Bar -->
-      <form class="form-inline d-flex ms-3">
-        <input class="form-control me-2" type="search" placeholder="Search Events..." aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 
@@ -102,14 +91,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="card border-0 shadow-sm rounded-4">
           <div class="card-body p-4">
             <div class="parent">
-              <h2 class="h4 mb-4">Create New Event</h2>
+              <h2 class="h4 mb-4">Create Your Own Event</h2>
             </div>
 
-            <form action="#!" method="post">
+            <form action="Event_booking.php" method="POST">
+
               <!-- Event Title -->
               <div class="mb-3">
-                <label for="eventTitle" class="form-label">Event Title</label>
+                <label for="eventTitle" class="form-label">Event Name</label>
                 <input type="text" class="form-control" id="eventTitle" name="eventTitle" required>
+              </div>
+              <!-- user email -->
+              <div class="mb-3">
+                <label for="email" class="form-label"> Your Email</label>
+                <input type="text" class="form-control" id="email" name="email" required>
               </div>
               <!-- Event Description -->
               <div class="mb-3">
@@ -151,8 +146,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </div>
               <!-- Submit and Cancel Buttons -->
               <div class="d-flex justify-content-between">
+                <!-- "Back" Button -->
+                <button class="btn btn-secondary" type="button" onclick="history.back()">Back</button>
                 <button class="btn btn-secondary" type="button">Cancel</button>
-                <button class="btn btn-primary" type="submit">Create Event</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
+
               </div>
             </form>
           </div>
@@ -163,6 +161,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Bootstrap JS -->
   <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Modal for Success Message -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Event Submission</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Event submitted successfully!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Trigger Modal Script -->
+  <script>
+    <?php if ($showSuccessModal): ?>
+      var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+      successModal.show();
+    <?php endif; ?>
+  </script>
+
 </body>
 
 </html>

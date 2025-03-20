@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +31,8 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="HOME.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="view_event.html">Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin_profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">More</a>
@@ -43,6 +44,7 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
             </ul>
         </div>
     </nav>
+
     <div class="container mt-5">
         <h2 class="text-center section-heading">Admin Dashboard</h2>
 
@@ -65,7 +67,7 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
             <!-- User Management Tab -->
             <div class="tab-pane fade show active" id="userManagement" role="tabpanel"
                 aria-labelledby="user-management-tab">
-                <h3 class="text-center">Gestion des utilisateurs</h3>
+                <h3 class="text-center">User Management</h3>
                 <div class="table-responsive mt-3">
                     <table class="table table-dark table-hover text-center">
                         <thead>
@@ -78,19 +80,36 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Example User Row -->
-                            <tr>
-                                <td>1</td>
-                                <td>JohnDoe</td>
-                                <td>johndoe@example.com</td>
-                                <td><span class="badge bg-success">Active</span></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm">Block</button>
-                                    <button class="btn btn-secondary btn-sm">Unblock</button>
-                                    <button class="btn btn-danger btn-sm">Delete</button>
-                                </td>
-                            </tr>
-                            <!-- Add more users dynamically here -->
+                            <?php
+                            // Include the database connection
+                            include('db_connection.php');
+
+                            // Fetch non-admin users from the database
+                            $sql = "SELECT id, username, email, status FROM users WHERE role != 'admin'";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['username'] . "</td>";
+                                    echo "<td>" . $row['email'] . "</td>";
+                                    echo "<td><span class='badge bg-success'>" . $row['status'] . "</span></td>";
+                                    echo "<td>
+                                         <form action='delete_user.php' method='post' style='display:inline;'>
+                                            <button class='btn btn-danger btn-sm'>Block</button>
+                                            <button class='btn btn-secondary btn-sm'>Unblock</button>
+                                            <button class='btn btn-danger btn-sm'>Delete</button>
+                                          </td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>No users found</td></tr>";
+                            }
+
+                            // Close connection
+                            $conn->close();
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -98,7 +117,7 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
 
             <!-- Event Management Tab -->
             <div class="tab-pane fade" id="eventManagement" role="tabpanel" aria-labelledby="event-management-tab">
-                <h3 class="text-center">Gestion des événements</h3>
+                <h3 class="text-center">Event Management</h3>
                 <div class="table-responsive mt-3">
                     <table class="table table-dark table-hover text-center">
                         <thead>
@@ -112,55 +131,46 @@ if (!isset($_SESSION['user_email']) || $_SESSION['user_role'] !== 'admin') {
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Example Event Row -->
-                            <tr>
-                                <td>101</td>
-                                <td>Music Festival</td>
-                                <td>JohnDoe</td>
-                                <td>12th Oct 2024</td>
-                                <td><span class="badge bg-warning">Pending</span></td>
-                                <td>
-                                    <button class="btn btn-success btn-sm">Validate</button>
-                                    <button class="btn btn-danger btn-sm">Reject</button>
-                                </td>
-                            </tr>
-                            <!-- Add more events dynamically here -->
+                            <?php
+                            // Include the database connection
+                            include('db_connection.php');
+
+                            // Fetch events from the database
+                            $sql = "SELECT id, event_name, created_by, event_date, status FROM events WHERE status = 'Pending'";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['id'] . "</td>";
+                                    echo "<td>" . $row['event_name'] . "</td>";
+                                    echo "<td>" . $row['created_by'] . "</td>";
+                                    echo "<td>" . $row['event_date'] . "</td>";
+                                    echo "<td><span class='badge bg-warning'>" . $row['status'] . "</span></td>";
+                                    echo "<td>
+                                            <form action='update_event.php' method='post' style='display:inline;'>
+                                                <input type='hidden' name='event_id' value='" . $row['id'] . "'>
+                                                <button type='submit' name='action' value='approve' class='btn btn-success btn-sm'>Approve</button>
+                                                <button type='submit' name='action' value='reject' class='btn btn-danger btn-sm'>Reject</button>
+                                            </form>
+                                          </td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='6'>No events found</td></tr>";
+                            }
+
+                            // Close connection
+                            $conn->close();
+                            ?>
                         </tbody>
                     </table>
                 </div>
-
-                <!-- Add Event Form -->
-                <div class="mt-5">
-                    <h4>Add New Event</h4>
-                    <form action="add_event.php" method="post">
-                        <div class="mb-3">
-                            <label for="event_name" class="form-label">Event Name</label>
-                            <input type="text" class="form-control" id="event_name" name="event_name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="created_by" class="form-label">Created By</label>
-                            <input type="text" class="form-control" id="created_by" name="created_by" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="event_date" class="form-label">Event Date</label>
-                            <input type="date" class="form-control" id="event_date" name="event_date" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <select class="form-control" id="status" name="status">
-                                <option value="Pending">Pending</option>
-                                <option value="Approved">Approved</option>
-                                <option value="Rejected">Rejected</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Add Event</button>
-                    </form>
-                </div>
             </div>
-
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
